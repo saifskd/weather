@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT Sans", sans-serif;
+}
+
+body{
+    /* background-image: url(https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638886301/EducationHub/photos/lightning-bolts.jpg);
+    background-size: cover; */
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.meanbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    height: 500px;
+    width: 500px;
+    background-color: #ffffff0a;
+    backdrop-filter: blur(11.3px);
+padding: 20px;
+}
+
+header{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+  border-radius: 50px;
+}
+
+.sub_men{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub_men img{
+    margin: 10px 0;
+    width: 110px;
+    height: auto;
+}
+
+.sub_men h2{
+    font-size: 50px;
+    color: #fff;
+    margin: 5px 0;
+}
+
+header input{
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    font-size: 20px;
+    width: 100%;
+    border-radius: 50px;
+    outline: none;
+}
+
+header input:hover{
+    border: 2px solid #fff;
+}
+
+header i{
+    background-color: rgb(255, 255, 255);
+    padding: 5px 15px;
+    font-size: 25px;
+}
+
+.men_windspeed{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.windspeed{
+    background-color: #0000002c;
+    backdrop-filter: blur(11.3px);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.windspeed i{
+    font-size: 40px;
+    color: #5cccee;
+    margin-right: 10px;
+}

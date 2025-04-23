@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+    <source src="./images/weather.mp4" type="video/mp4">
+</video>
+    
+    <div class="meanbox">
+
+    <header>
+        <input id="search" type="text" placeholder="Search city..">
+        <i id="btn" onclick="btn()">&#10004;</i>
+    </header>
+
+    <div class="sub_men">
+<img id="weather_img" src="./images/mist.png" alt="img">
+<h2 id="temp">00°C</h2>
+<h2 id="city">City Name</h2>
+<div class="men_windspeed">
+        <div class="windspeed">
+       <i>&#9832;</i>
+        <div>
+            <span id="Humedity">00</span>%
+            <p>Humedity</p>
+        </div>
+    </div>
+    <div class="windspeed">
+       <i>&#9851;</i>
+        <div>
+            <span id="windSpeed">00</span> km/h
+            <p>WindSpeed</p>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+
+
+    <script>
+
+let apikey = "57465775b51a212138465da279b4cbd2";
+let apiurl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+
+let search = document.getElementById("search");
+let searchbtn = document.getElementById("btn");
+let weather_img = document.getElementById("weather_img");
+
+async function cheackweather(city){
+    let response = await fetch(apiurl + city + `&appid=${apikey}`);
+    var deta = await response.json();
+
+    console.log(deta);
+
+document.getElementById("temp").innerHTML = Math.round(deta.main.temp) + "°C";
+document.getElementById("city").innerHTML = deta.name;
+document.getElementById("Humedity").innerHTML = deta.main.humidity;
+document.getElementById("windSpeed").innerHTML = deta.wind.speed;
+
+if (deta.weather[0].main == "Coulds"){
+  weather_img.src = "./images/mist.png";
+}
+ else if (deta.weather[0].main == "Rain"){
+  weather_img.src = "./images/rain.png";
+}
+else if (deta.weather[0].main == "Drizzle"){
+  weather_img.src = "./images/birezzil.png";
+}
+else if (deta.weather[0].main == "Clear"){
+  weather_img.src = "./images/—Pngtree—lovely yellow sun material_4388910.png";
+}
+
+}
+
+function btn(){
+cheackweather(search.value);
+}
+
+
+
+
+//  https://api.openweathermap.org/data/2.5/weather?&units=metric&q=noida&appid=57465775b51a212138465da279b4cbd2
+
+
+// https://api.openweathermap.org/data/2.5/weather?units=metric&q=noida&appid=57465775b51a212138465da279b4cbd2
+
+// apiurl = https://api.openweathermap.org/data/2.5/weather?q=noida&appid=57465775b51a212138465da279b4cbd2&units=metric
+
+    </script>
+</body>
+</html>
